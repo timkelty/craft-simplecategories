@@ -1,0 +1,14 @@
+{
+  "name": "timkelty/craft-better-categories",
+  "description": "Categories fieldtype, better.",
+  "type": "craft-plugin",
+  "authors": [
+    {
+      "name": "Tim Kelty",
+      "homepage": "http://fusionary.com/"
+    }
+  ],
+  "require": {
+    "composer/installers": "~1.0"
+  }
+}

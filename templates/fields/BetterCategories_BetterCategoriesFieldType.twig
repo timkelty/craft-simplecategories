@@ -1,0 +1,24 @@
+{#
+/**
+ * Better Categories plugin for Craft CMS
+ *
+ * BetterCategories_BetterCategoriesFieldType HTML
+ *
+ * @author    Tim Kelty
+ * @copyright Copyright (c) 2016 Tim Kelty
+ * @link      http://fusionary.com/
+ * @package   BetterCategories
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{{ forms.textField({
+    id: id ~ 'someField',
+    class: 'nicetext',
+    name: name ~ '[someField]',
+    value: values.someField,
+    errors: values.getErrors('someField'),
+    required: false,
+}) }}
