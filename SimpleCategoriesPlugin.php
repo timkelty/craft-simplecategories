@@ -1,7 +1,5 @@
 <?php
 /**
- * Simple Categories plugin for Craft CMS
- *
  * @author    Tim Kelty
  * @copyright Copyright (c) 2016 Tim Kelty
  * @link      http://fusionary.com/

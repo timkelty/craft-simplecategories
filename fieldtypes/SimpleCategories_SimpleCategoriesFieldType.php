@@ -1,9 +1,5 @@
 <?php
 /**
- * Simple Categories plugin for Craft CMS
- *
- * SimpleCategories_SimpleCategories FieldType
- *
  * @author    Tim Kelty
  * @copyright Copyright (c) 2016 Tim Kelty
  * @link      http://fusionary.com/
