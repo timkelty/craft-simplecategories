@@ -2,7 +2,7 @@
 {%- set name = (name is defined and name ? name~'[]' : null) %}
 
 <input type="hidden" name="{{ name }}" value="">
-<div id="{{ namespacedId }}" class="SimpleCategories">
+<div class="SimpleCategories">
 	<ul>
 		{% nav category in elements %}
 			<li>

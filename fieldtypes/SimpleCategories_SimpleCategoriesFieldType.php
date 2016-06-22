@@ -51,7 +51,6 @@ class SimpleCategories_SimpleCategoriesFieldType extends CategoriesFieldType
 
         $vars = $this->getInputTemplateVariables($name, $criteria);
         $vars['values'] = $criteria->ids();
-        $vars['namespacedId'] = $namespacedId;
         $groupCriteria = craft()->elements->getCriteria(ElementType::Category);
         $groupCriteria->groupId = $source['criteria']['groupId'];
         $vars['elements'] = $groupCriteria;
