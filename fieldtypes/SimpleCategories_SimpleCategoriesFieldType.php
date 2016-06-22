@@ -57,4 +57,23 @@ class SimpleCategories_SimpleCategoriesFieldType extends CategoriesFieldType
 
         return craft()->templates->render('simplecategories/input', $vars);
     }
+
+    /**
+     * @inheritDoc ISavableComponentType::getSettingsHtml()
+     *
+     * @return string|null
+     */
+    public function getSettingsHtml()
+    {
+        return craft()->templates->render('simplecategories/settings', array(
+            'allowMultipleSources'  => $this->allowMultipleSources,
+            'allowLimit'            => $this->allowLimit,
+            'sources'               => $this->getSourceOptions(),
+            'targetLocaleFieldHtml' => $this->getTargetLocaleFieldHtml(),
+            'viewModeFieldHtml'     => $this->getViewModeFieldHtml(),
+            'settings'              => $this->getSettings(),
+            'defaultSelectionLabel' => $this->getAddButtonLabel(),
+            'type'                  => $this->getName()
+        ));
+    }
 }
