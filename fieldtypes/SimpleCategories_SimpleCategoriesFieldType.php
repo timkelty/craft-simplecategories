@@ -1,19 +1,19 @@
 <?php
 /**
- * Better Categories plugin for Craft CMS
+ * Simple Categories plugin for Craft CMS
  *
- * BetterCategories_BetterCategories FieldType
+ * SimpleCategories_SimpleCategories FieldType
  *
  * @author    Tim Kelty
  * @copyright Copyright (c) 2016 Tim Kelty
  * @link      http://fusionary.com/
- * @package   BetterCategories
+ * @package   SimpleCategories
  * @since     1.0.0
  */
 
 namespace Craft;
 
-class BetterCategories_BetterCategoriesFieldType extends CategoriesFieldType
+class SimpleCategories_SimpleCategoriesFieldType extends CategoriesFieldType
 {
     /**
      * Returns the name of the fieldtype.
@@ -22,7 +22,7 @@ class BetterCategories_BetterCategoriesFieldType extends CategoriesFieldType
      */
     public function getName()
     {
-        return Craft::t('Better Categories');
+        return Craft::t('Simple Categories');
     }
 
     /**
@@ -34,7 +34,7 @@ class BetterCategories_BetterCategoriesFieldType extends CategoriesFieldType
      */
     public function getInputHtml($name, $criteria)
     {
-        craft()->templates->includeCssResource('bettercategories/css/input.css');
+        craft()->templates->includeCssResource('simplecategories/css/input.css');
 
 		// Make sure the field is set to a valid category group
 		$sourceKey = $this->getSettings()->source;
@@ -56,6 +56,6 @@ class BetterCategories_BetterCategoriesFieldType extends CategoriesFieldType
         $groupCriteria->groupId = $source['criteria']['groupId'];
         $vars['elements'] = $groupCriteria;
 
-        return craft()->templates->render('bettercategories/input', $vars);
+        return craft()->templates->render('simplecategories/input', $vars);
     }
 }

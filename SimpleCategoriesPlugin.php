@@ -1,33 +1,20 @@
 <?php
 /**
- * Better Categories plugin for Craft CMS
+ * Simple Categories plugin for Craft CMS
  *
  * This is a generic Craft CMS plugin
  *
  * @author    Tim Kelty
  * @copyright Copyright (c) 2016 Tim Kelty
  * @link      http://fusionary.com/
- * @package   BetterCategories
+ * @package   SimpleCategories
  * @since     1.0.0
  */
 
 namespace Craft;
 
-class BetterCategoriesPlugin extends BasePlugin
+class SimpleCategoriesPlugin extends BasePlugin
 {
-    /**
-     * Called after the plugin class is instantiated; do any one-time initialization here such as hooks and events:
-     *
-     * craft()->on('entries.saveEntry', function(Event $event) {
-     *    // ...
-     * });
-     *
-     * or loading any third party Composer packages via:
-     *
-     * require_once __DIR__ . '/vendor/autoload.php';
-     *
-     * @return mixed
-     */
     public function init()
     {
     }
@@ -39,7 +26,7 @@ class BetterCategoriesPlugin extends BasePlugin
      */
     public function getName()
     {
-         return Craft::t('Better Categories');
+         return Craft::t('Simple Categories');
     }
 
     /**
@@ -50,7 +37,7 @@ class BetterCategoriesPlugin extends BasePlugin
      */
     public function getDescription()
     {
-        return Craft::t('This is a generic Craft CMS plugin');
+        return Craft::t('Categories fieldtype as simple checkboxes.');
     }
 
     /**
@@ -61,7 +48,7 @@ class BetterCategoriesPlugin extends BasePlugin
      */
     public function getDocumentationUrl()
     {
-        return 'https://github.com/timkelty/bettercategories/blob/master/README.md';
+        return 'https://github.com/timkelty/craft-simplecategories/blob/master/README.md';
     }
 
     /**
@@ -73,7 +60,7 @@ class BetterCategoriesPlugin extends BasePlugin
      */
     public function getReleaseFeedUrl()
     {
-        return 'https://raw.githubusercontent.com/timkelty/bettercategories/master/releases.json';
+        return 'https://raw.githubusercontent.com/timkelty/craft-simplecategories/master/releases.json';
     }
 
     /**
@@ -127,37 +114,5 @@ class BetterCategoriesPlugin extends BasePlugin
     public function hasCpSection()
     {
         return false;
-    }
-
-    /**
-     * Called right before your plugin’s row gets stored in the plugins database table, and tables have been created
-     * for it based on its records.
-     */
-    public function onBeforeInstall()
-    {
-    }
-
-    /**
-     * Called right after your plugin’s row has been stored in the plugins database table, and tables have been
-     * created for it based on its records.
-     */
-    public function onAfterInstall()
-    {
-    }
-
-    /**
-     * Called right before your plugin’s record-based tables have been deleted, and its row in the plugins table
-     * has been deleted.
-     */
-    public function onBeforeUninstall()
-    {
-    }
-
-    /**
-     * Called right after your plugin’s record-based tables have been deleted, and its row in the plugins table
-     * has been deleted.
-     */
-    public function onAfterUninstall()
-    {
     }
 }

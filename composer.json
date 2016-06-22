@@ -1,6 +1,6 @@
 {
-  "name": "timkelty/craft-bettercategories",
-  "description": "Categories fieldtype, better.",
+  "name": "timkelty/craft-simplecategories",
+  "description": "Categories fieldtype as simple checkboxes.",
   "type": "craft-plugin",
   "authors": [
     {
