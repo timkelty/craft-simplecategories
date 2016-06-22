@@ -1,8 +1,7 @@
-<?php
 /**
  * Better Categories plugin for Craft CMS
  *
- * Better Categories Translation
+ * BetterCategories_BetterCategoriesFieldType CSS
  *
  * @author    Tim Kelty
  * @copyright Copyright (c) 2016 Tim Kelty
@@ -11,6 +10,6 @@
  * @since     1.0.0
  */
 
-return array(
-    'Translate me' => 'To this',
-);
+.SimpleCategories ul ul {
+  margin-left: 20px;
+}

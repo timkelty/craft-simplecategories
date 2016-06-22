@@ -1,0 +1,23 @@
+{% from "_includes/forms" import checkbox %}
+{%- set name = (name is defined and name ? name~'[]' : null) %}
+
+<input type="hidden" name="{{ name }}" value="">
+<div id="{{ namespacedId }}" class="SimpleCategories">
+	<ul>
+		{% nav category in elements %}
+			<li>
+	      {{ checkbox({
+	        label: category.title|t,
+	        value: category.id,
+	        name: name,
+	        checked: (category.id in values)
+	      }) }}
+				{% ifchildren %}
+					<ul>
+						{% children %}
+					</ul>
+				{% endifchildren %}
+			</li>
+		{% endnav %}
+	</ul>
+</div>

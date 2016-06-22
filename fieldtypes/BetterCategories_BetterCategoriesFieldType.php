@@ -13,7 +13,7 @@
 
 namespace Craft;
 
-class BetterCategories_BetterCategoriesFieldType extends BaseFieldType
+class BetterCategories_BetterCategoriesFieldType extends CategoriesFieldType
 {
     /**
      * Returns the name of the fieldtype.
@@ -22,17 +22,7 @@ class BetterCategories_BetterCategoriesFieldType extends BaseFieldType
      */
     public function getName()
     {
-        return Craft::t('BetterCategories_BetterCategories');
-    }
-
-    /**
-     * Returns the content attribute config.
-     *
-     * @return mixed
-     */
-    public function defineContentAttribute()
-    {
-        return AttributeType::Mixed;
+        return Craft::t('Better Categories');
     }
 
     /**
@@ -42,62 +32,30 @@ class BetterCategories_BetterCategoriesFieldType extends BaseFieldType
      * @param mixed  $value
      * @return string
      */
-    public function getInputHtml($name, $value)
+    public function getInputHtml($name, $criteria)
     {
-        if (!$value)
-            $value = new BetterCategories_BetterCategoriesModel();
+        craft()->templates->includeCssResource('bettercategories/css/input.css');
 
-        $id = craft()->templates->formatInputId($name);
-        $namespacedId = craft()->templates->namespaceInputId($id);
+		// Make sure the field is set to a valid category group
+		$sourceKey = $this->getSettings()->source;
 
-/* -- Include our Javascript & CSS */
+		if ($sourceKey)
+		{
+			$source = $this->getElementType()->getSource($sourceKey, 'field');
+		}
 
-        craft()->templates->includeCssResource('bettercategories/css/fields/BetterCategories_BetterCategoriesFieldType.css');
-        craft()->templates->includeJsResource('bettercategories/js/fields/BetterCategories_BetterCategoriesFieldType.js');
+		if (empty($source))
+		{
+			return '<p class="error">'.Craft::t('This field is not set to a valid category group.').'</p>';
+		}
 
-/* -- Variables to pass down to our field.js */
+        $vars = $this->getInputTemplateVariables($name, $criteria);
+        $vars['values'] = $criteria->ids();
+        $vars['namespacedId'] = $namespacedId;
+        $groupCriteria = craft()->elements->getCriteria(ElementType::Category);
+        $groupCriteria->groupId = $source['criteria']['groupId'];
+        $vars['elements'] = $groupCriteria;
 
-        $jsonVars = array(
-            'id' => $id,
-            'name' => $name,
-            'namespace' => $namespacedId,
-            'prefix' => craft()->templates->namespaceInputId(""),
-            );
-
-        $jsonVars = json_encode($jsonVars);
-        craft()->templates->includeJs("$('#{$namespacedId}').BetterCategories_BetterCategoriesFieldType(" . $jsonVars . ");");
-
-/* -- Variables to pass down to our rendered template */
-
-        $variables = array(
-            'id' => $id,
-            'name' => $name,
-            'namespaceId' => $namespacedId,
-            'values' => $value
-            );
-
-        return craft()->templates->render('bettercategories/fields/BetterCategories_BetterCategoriesFieldType.twig', $variables);
-    }
-
-    /**
-     * Returns the input value as it should be saved to the database.
-     *
-     * @param mixed $value
-     * @return mixed
-     */
-    public function prepValueFromPost($value)
-    {
-        return $value;
-    }
-
-    /**
-     * Prepares the field's value for use.
-     *
-     * @param mixed $value
-     * @return mixed
-     */
-    public function prepValue($value)
-    {
-        return $value;
+        return craft()->templates->render('bettercategories/input', $vars);
     }
 }
