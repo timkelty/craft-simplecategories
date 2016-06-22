@@ -2,8 +2,6 @@
 /**
  * Simple Categories plugin for Craft CMS
  *
- * This is a generic Craft CMS plugin
- *
  * @author    Tim Kelty
  * @copyright Copyright (c) 2016 Tim Kelty
  * @link      http://fusionary.com/
