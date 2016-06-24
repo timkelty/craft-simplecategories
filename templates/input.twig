@@ -1,7 +1,11 @@
 {% from "_includes/forms" import checkbox %}
+
+{% if name is defined and name %}
+	<input type="hidden" name="{{ name }}" value="">
+{% endif -%}
+
 {%- set name = (name is defined and name ? name~'[]' : null) %}
 
-<input type="hidden" name="{{ name }}" value="">
 <div class="SimpleCategories">
 	<ul>
 		{% nav category in elements %}
