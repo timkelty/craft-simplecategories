@@ -1,6 +1,6 @@
 {
   "name": "timkelty/craft-simplecategories",
-  "description": "Categories fieldtype as simple checkboxes.",
+  "description": "Categories fieldtype as simple inputs (checkboxes, radios, dropdowns).",
   "type": "craft-plugin",
   "authors": [
     {
