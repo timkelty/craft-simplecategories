@@ -1,2 +1,16 @@
 {% extends '_components/fieldtypes/elementfieldsettings' %}
-{% block selectionLabelField %}{% endblock %}
+{% import "_includes/forms" as forms %}
+
+{# Override this block, since we don't want it #}
+{% block selectionLabelField %}
+  {{ forms.selectField({
+    label: 'Input Type'|t,
+    value: settings.inputType,
+    name: 'inputType',
+    options: {
+      'checkboxes': 'Checkboxes'|t,
+      'dropdown': 'Dropdown'|t,
+      'radios': 'Radio Buttons'|t,
+    }
+  }) }}
+{% endblock %}

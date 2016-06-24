@@ -50,6 +50,7 @@ class SimpleCategories_SimpleCategoriesFieldType extends CategoriesFieldType
         $groupCriteria = craft()->elements->getCriteria(ElementType::Category);
         $groupCriteria->groupId = $source['criteria']['groupId'];
         $vars['elements'] = $groupCriteria;
+        $vars['settings'] = $this->settings;
 
         return craft()->templates->render('simplecategories/input', $vars);
     }
@@ -71,5 +72,13 @@ class SimpleCategories_SimpleCategoriesFieldType extends CategoriesFieldType
             'defaultSelectionLabel' => $this->getAddButtonLabel(),
             'type'                  => $this->getName()
         ));
+    }
+
+    protected function defineSettings()
+    {
+        $settings = parent::defineSettings();
+        $settings['inputType'] = array(AttributeType::String, 'default' => 'checkboxes');
+
+        return $settings;
     }
 }

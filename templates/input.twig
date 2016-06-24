@@ -1,27 +1,58 @@
-{% from "_includes/forms" import checkbox %}
+{% import "_includes/forms" as forms %}
 
 {% if name is defined and name %}
 	<input type="hidden" name="{{ name }}" value="">
 {% endif -%}
 
+{% set selectOptions = [] %}
+{% for element in elements %}
+	{% set prefix %}
+		{% if element.level > 1 %}
+			{% for i in 1..(element.level - 1) %}---{% endfor %}
+		{% endif %}
+	{% endset %}
+
+	{% set selectOptions = selectOptions|merge([{
+		label: (prefix ~ ' ' ~ element.title)|raw,
+		value: element.id,
+	}]) %}
+{% endfor %}
+
 {%- set name = (name is defined and name ? name~'[]' : null) %}
 
 <div class="SimpleCategories">
-	<ul>
-		{% nav category in elements %}
-			<li>
-	      {{ checkbox({
-	        label: category.title|t,
-	        value: category.id,
-	        name: name,
-	        checked: (category.id in values)
-	      }) }}
-				{% ifchildren %}
-					<ul>
-						{% children %}
-					</ul>
-				{% endifchildren %}
-			</li>
-		{% endnav %}
-	</ul>
+	{% if settings.inputType == 'dropdown' %}
+		{{ forms.selectField({
+			value: values,
+			name: name,
+			options: selectOptions,
+		}) }}
+	{% else %}
+		<ul>
+			{% nav category in elements %}
+				<li>
+					{% if settings.inputType == 'radios'%}
+						{{ forms.radio({
+							label: category.title|t,
+							value: category.id,
+							name: name,
+							checked: (category.id in values or loop.first)
+						}) }}
+					{% else %}
+						{{ forms.checkbox({
+							label: category.title|t,
+							value: category.id,
+							name: name,
+							checked: (category.id in values)
+						}) }}
+					{% endif %}
+					{% ifchildren %}
+						<ul>
+							{% children %}
+						</ul>
+					{% endifchildren %}
+				</li>
+			{% endnav %}
+		</ul>
+	{% endif %}
 </div>
