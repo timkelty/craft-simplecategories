@@ -15,3 +15,7 @@ To install Simple Categories, follow these steps:
 Simple Categories works on Craft 2.4.x and Craft 2.5.x.
 
 Brought to you by [Tim Kelty](http://fusionary.com/)
+
+## Caveats
+
+"Limit" validation gets a little weird when using categories with multiple levels. When you select nested category, you're also selecting its parent, so with a limit of 1 you wouldn't be able to select anything from a nested level.

@@ -23,7 +23,7 @@
 <div class="SimpleCategories">
 	{% if settings.inputType == 'dropdown' %}
 		{{ forms.selectField({
-			value: values,
+			value: values|last,
 			name: name,
 			options: selectOptions,
 		}) }}
