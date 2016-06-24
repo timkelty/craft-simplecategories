@@ -1,5 +1,14 @@
 [
     {
+        "version": "1.0.1",
+        "downloadUrl": "https://github.com/timkelty/craft-simplecategories/archive/1.0.1.zip",
+        "date": "2016-06-24T13:20:36",
+        "notes": [
+            "[Added] Fields can now be checkboxes, radios, or dropdowns",
+            "[Fixed] Limit validation"
+        ]
+    },
+    {
         "version": "1.0.0",
         "downloadUrl": "https://github.com/timkelty/craft-simplecategories/archive/1.0.0.zip",
         "date": "2016-06-21T18:47:17.098Z",
