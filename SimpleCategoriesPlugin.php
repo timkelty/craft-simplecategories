@@ -33,7 +33,7 @@ class SimpleCategoriesPlugin extends BasePlugin
      */
     public function getDescription()
     {
-        return Craft::t('Categories fieldtype as simple checkboxes.');
+        return Craft::t('Categories fieldtype as simple inputs (checkboxes, radio buttons, dropdowns).');
     }
 
     /**

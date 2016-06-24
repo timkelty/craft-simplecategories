@@ -1,6 +1,6 @@
 # Simple Categories plugin for Craft CMS
 
-Categories fieldtype as simple checkboxes.
+Categories fieldtype as simple inputs (checkboxes, radio buttons, dropdowns).
 
 ## Installation
 
