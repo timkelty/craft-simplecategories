@@ -1,5 +1,13 @@
 [
     {
+        "version": "1.1.6",
+        "downloadUrl": "https://github.com/timkelty/craft-simplecategories/archive/1.1.6.zip",
+        "date": "2016-06-24T13:20:36",
+        "notes": [
+            "[Fixed] Always select the deepest, for single selection types that are nested."
+        ]
+    },
+    {
         "version": "1.1.4",
         "downloadUrl": "https://github.com/timkelty/craft-simplecategories/archive/1.1.4.zip",
         "date": "2016-06-24T13:20:36",
