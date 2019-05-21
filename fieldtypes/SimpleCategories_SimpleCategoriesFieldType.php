@@ -46,7 +46,7 @@ class SimpleCategories_SimpleCategoriesFieldType extends CategoriesFieldType
 		}
 
         $vars = $this->getInputTemplateVariables($name, $criteria);
-        $vars['values'] = $criteria ? $criteria->ids() : [];
+        $vars['values'] = $criteria ? $criteria->order('lft desc')->ids() : [];
         $groupCriteria = craft()->elements->getCriteria(ElementType::Category);
         $groupCriteria->limit = null;
         $groupCriteria->groupId = $source['criteria']['groupId'];
